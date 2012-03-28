@@ -6,7 +6,7 @@ Uses nave to install node
 
 Copy the module to your puppet modules directory of if you're using git
 to manage your manifests/modules you can just `git sudmodule add
-https://github.com/danheberden/puppet-nodejs modules/nodejs`
+git@github.com:danheberden/puppet-nodejs.git modules/nodejs`
 
 Add a nodejs declaration to whatever node in your manifest:
 
