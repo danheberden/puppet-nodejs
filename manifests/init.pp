@@ -1,4 +1,4 @@
-class nodejs ( $version ) {
+class nodejs ( $version, $logoutput = 'on_failure' ) {
 
   package { 'curl':
     ensure => present,
@@ -9,10 +9,11 @@ class nodejs ( $version ) {
 
   # use nave, yo
   exec { 'nave' :
-    command => "bash -c \"\$(curl -s 'https://raw.github.com/isaacs/nave/master/nave.sh') usemain $version \"",
-    path     => [ "/usr/local/bin", "/bin" , "/usr/bin" ],
-    require => Package[ 'curl' ],
+    command     => "bash -c \"\$(curl -s 'https://raw.github.com/isaacs/nave/master/nave.sh') usemain $version \"",
+    path        => [ "/usr/local/bin", "/bin" , "/usr/bin" ],
+    require     => Package[ 'curl' ],
     environment => [ 'HOME=""', 'PREFIX=/usr/local/lib/node' ],
+    logoutput   => $logoutput,
   }
 
 }
