@@ -17,6 +17,8 @@ class nodejs ( $version, $logoutput = 'on_failure' ) {
     require     => [ Package[ 'curl' ], Package[ 'libssl-dev' ], Package[ 'build-essential' ] ],
     environment => [ 'HOME=""', 'PREFIX=/usr/local/lib/node', 'NAVE_JOBS=1' ],
     logoutput   => $logoutput,
+    # btw, this takes forever....
+    timeout => 0,
   }
 
 }
