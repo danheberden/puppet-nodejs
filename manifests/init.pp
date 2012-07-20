@@ -18,7 +18,8 @@ class nodejs ( $version, $logoutput = 'on_failure' ) {
     environment => [ 'HOME=""', 'PREFIX=/usr/local/lib/node', 'NAVE_JOBS=1' ],
     logoutput   => $logoutput,
     # btw, this takes forever....
-    timeout => 0,
+    timeout     => 0,
+    unless      => "test \"v$version\" = \"\$(node -v)\""
   }
 
 }
