@@ -1,8 +1,11 @@
 class nodejs ( $version, $logoutput = 'on_failure' ) {
 
-  package { 'curl':
-    ensure => present,
+  if ! defined(Package['curl']) {
+    package { 'curl':
+      ensure => present,
+    }
   }
+
   package { 'libssl-dev':
     ensure => present,
   }
