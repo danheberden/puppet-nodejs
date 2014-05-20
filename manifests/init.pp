@@ -15,7 +15,7 @@ class nodejs ( $version, $logoutput = 'on_failure' ) {
 
   # use nave, yo
   exec { 'nave' :
-    command     => "bash -c \"\$(curl -s 'https://raw.github.com/isaacs/nave/master/nave.sh') usemain $version \"",
+    command     => "bash -c \"\$(curl -s 'https://raw.githubusercontent.com/isaacs/nave/master/nave.sh') usemain $version \"",
     path        => [ "/usr/local/bin", "/bin" , "/usr/bin" ],
     require     => [ Package[ 'curl' ], Package[ 'libssl-dev' ], Package[ 'build-essential' ] ],
     environment => [ 'HOME=""', 'PREFIX=/usr/local/lib/node', 'NAVE_JOBS=1' ],
